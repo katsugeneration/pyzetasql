@@ -3,13 +3,14 @@
 
 ## BUILD
 
-Use bazel-1.0.0
+Use bazel 4.x.x
 
 ```sh
 cd zetasql
-bazel-1.0.0 build --jobs 100 //zetasql/local_service:service
-bazel-1.0.0 build --jobs 100 //zetasql/local_service:local_service_python_proto
+PYTHON2_BIN_PATH=$(which python) PYTHONPATH=$(which python) bazel-4.x.x build --jobs 100 --incompatible_restrict_string_escapes=false --incompatible_require_linker_input_cc_api=false //zetasql/local_service:service
+PYTHON2_BIN_PATH=$(which python) PYTHONPATH=$(which python) bazel-4.x.x build --jobs 100 --incompatible_restrict_string_escapes=false //zetasql/local_service:local_service_python_grpc
 cd -
+rm -rf pyzetasql/proto/zetasql
 cp zetasql/bazel-bin/zetasql/local_service/service pyzetasql/server
 mkdir -p pyzetasql/proto/zetasql/local_service
 cp zetasql/bazel-bin/zetasql/local_service/*_pb2.py pyzetasql/proto/zetasql/local_service/
