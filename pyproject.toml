@@ -5,9 +5,6 @@ description = ""
 authors = ["Katsuya Shimabukuro <katsu.generation.888@gmail.com>"]
 build = 'build.py'
 
-[tool.poetry.build]
-generate-setup-file = false
-
 [tool.poetry.dependencies]
 python = "^3.9"
 grpcio = "^1.43.0"
