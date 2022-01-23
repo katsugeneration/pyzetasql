@@ -4,6 +4,7 @@ import subprocess
 
 def build(setup_kwargs):
     scripts = '''
+git submodule update --init --recursive && \
 cd zetasql && \
 PYTHON2_BIN_PATH=$(which python) PYTHONPATH=$(which python) bazel build --jobs 100 --incompatible_restrict_string_escapes=false --incompatible_require_linker_input_cc_api=false //zetasql/local_service:service && \
 PYTHON2_BIN_PATH=$(which python) PYTHONPATH=$(which python) bazel build --jobs 100 --incompatible_restrict_string_escapes=false //zetasql/local_service:local_service_python_grpc && \
