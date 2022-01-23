@@ -15,12 +15,12 @@ mkdir -p pyzetasql/proto/zetasql/local_service && \
 cp zetasql/bazel-bin/zetasql/local_service/*_pb2.py pyzetasql/proto/zetasql/local_service/ && \
 cp zetasql/bazel-bin/zetasql/local_service/*_pb2_grpc.py pyzetasql/proto/zetasql/local_service/ && \
 mkdir -p pyzetasql/proto/zetasql/public && \
-cp zetasql/bazel-bin/zetasql/public/**/*_pb2.py pyzetasql/proto/zetasql/public/ && \
+cp zetasql/bazel-bin/zetasql/public/*_pb2.py pyzetasql/proto/zetasql/public/ && \
 mkdir -p pyzetasql/proto/zetasql/public/proto && \
-cp zetasql/bazel-bin/zetasql/public/proto/**/*_pb2.py pyzetasql/proto/zetasql/public/proto/ && \
+cp zetasql/bazel-bin/zetasql/public/proto/*_pb2.py pyzetasql/proto/zetasql/public/proto/ && \
 mkdir -p pyzetasql/proto/zetasql/proto && \
-cp zetasql/bazel-bin/zetasql/proto/**/*_pb2.py pyzetasql/proto/zetasql/proto/ && \
+cp zetasql/bazel-bin/zetasql/proto/*_pb2.py pyzetasql/proto/zetasql/proto/ && \
 mkdir -p pyzetasql/proto/zetasql/resolved_ast && \
-cp zetasql/bazel-bin/zetasql/resolved_ast/**/*_pb2.py pyzetasql/proto/zetasql/resolved_ast/
+cp zetasql/bazel-bin/zetasql/resolved_ast/*_pb2.py pyzetasql/proto/zetasql/resolved_ast/
     '''
     subprocess.check_call(scripts, shell=True, stdout=sys.stdout, stderr=sys.stderr)
