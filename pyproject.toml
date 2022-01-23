@@ -4,7 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Katsuya Shimabukuro <katsu.generation.888@gmail.com>"]
 build = 'build.py'
-exclude = ['zetasql]
+exclude = ['zetasql']
 
 [tool.poetry.dependencies]
 python = "^3.9"
