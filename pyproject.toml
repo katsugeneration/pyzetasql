@@ -5,6 +5,9 @@ description = ""
 authors = ["Katsuya Shimabukuro <katsu.generation.888@gmail.com>"]
 build = 'build.py'
 
+[tool.poetry.build]
+generate-setup-file = false
+
 [tool.poetry.dependencies]
 python = "^3.9"
 grpcio = "^1.43.0"
@@ -14,5 +17,5 @@ protobuf = "^3.19.3"
 pytest = "^6.2.5"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
+requires = ["poetry-core>=1.0.0", "setuptools"]
 build-backend = "poetry.core.masonry.api"
