@@ -31,8 +31,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('zetasql') }}-${{ matrix.python-version }}
 
       - name: Setup Android SDK
-        run: |
-            /usr/local/lib/android/sdk/tools/bin/sdkmanager build-tools;30.0.3 --sdk_root=/usr/local/lib/android/sdk
+        run: /usr/local/lib/android/sdk/tools/bin/sdkmanager --uninstall build-tools;29.0.2
 
       - name: Install poetry
         run: pip install poetry
