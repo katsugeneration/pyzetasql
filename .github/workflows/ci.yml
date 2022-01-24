@@ -30,18 +30,16 @@ jobs:
             pyzetasql/proto/zetasql
           key: ${{ runner.os }}-${{ hashFiles('zetasql') }}-${{ matrix.python-version }}
 
+      - name: Install bazel
+        uses: bazelbuild/setup-bazelisk@v1
+        with:
+          bazelisk-version: 4.2.2
+
       - name: Cache bazel
         uses: actions/cache@v2
         with:
           path: "/home/runner/.cache/bazel"
           key: bazel
-
-      - name: Install bazelisk
-        run: |
-          curl -LO "https://github.com/bazelbuild/bazelisk/releases/download/v4.2.2/bazelisk-linux-amd64"
-          mkdir -p "${GITHUB_WORKSPACE}/bin/"
-          mv bazelisk-linux-amd64 "${GITHUB_WORKSPACE}/bin/bazel"
-          chmod +x "${GITHUB_WORKSPACE}/bin/bazel"
 
       - name: Install poetry
         run: pip install poetry
