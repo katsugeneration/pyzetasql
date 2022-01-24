@@ -30,11 +30,8 @@ jobs:
             pyzetasql/proto/zetasql
           key: ${{ runner.os }}-${{ hashFiles('zetasql') }}-${{ matrix.python-version }}
 
-      - name: Install android sdk
-        uses: maxim-lobanov/setup-android-tools@v1
-        with:
-          packages: |
-            platforms;android-30
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
 
       - name: Install poetry
         run: pip install poetry
