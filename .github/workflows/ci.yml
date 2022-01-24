@@ -33,7 +33,7 @@ jobs:
       - name: Install bazel
         uses: bazelbuild/setup-bazelisk@v1
         with:
-          bazelisk-version: 4.2.2
+          bazelisk-version: 1.9.0
 
       - name: Cache bazel
         uses: actions/cache@v2
