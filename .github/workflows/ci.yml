@@ -32,7 +32,7 @@ jobs:
 
       - name: Setup Android SDK
         run: |
-            /usr/local/lib/android/sdk/tools/bin/sdkmanager build-tools;30.0.3
+            /usr/local/lib/android/sdk/tools/bin/sdkmanager build-tools;30.0.3 --sdk_root=/usr/local/lib/android/sdk
 
       - name: Install poetry
         run: pip install poetry
