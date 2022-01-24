@@ -1,16 +1,18 @@
 git submodule update --init --recursive
-cd zetasql
-if test -f "../pyzetasql/server/server"; then
+if [ ! -f "pyzetasql/server/service" ]; then
+    cd zetasql
     PYTHON2_BIN_PATH=$(which python) PYTHONPATH=$(which python) bazel build --jobs 100 --incompatible_restrict_string_escapes=false --incompatible_require_linker_input_cc_api=false //zetasql/local_service:service
+    cd -
 fi
-if test -f "../pyzetasql/proto/zetasql"; then
+if [ ! -f "pyzetasql/proto/zetasql" ]; then
+    cd zetasql
     PYTHON2_BIN_PATH=$(which python) PYTHONPATH=$(which python) bazel build --jobs 100 --incompatible_restrict_string_escapes=false //zetasql/local_service:local_service_python_grpc
+    cd -
 fi
-cd -
-if test -f "../pyzetasql/server/server"; then
+if [ ! -f "pyzetasql/server/service" ]; then
     cp zetasql/bazel-bin/zetasql/local_service/service pyzetasql/server
 fi
-if test -f "../pyzetasql/proto/zetasql"; then
+if [ ! -f "pyzetasql/proto/zetasql" ]; then
     rm -rf pyzetasql/proto/zetasql
     mkdir -p pyzetasql/proto/zetasql/local_service
     cp zetasql/bazel-bin/zetasql/local_service/*_pb2.py pyzetasql/proto/zetasql/local_service/
