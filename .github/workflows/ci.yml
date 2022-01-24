@@ -30,15 +30,6 @@ jobs:
             pyzetasql/proto/zetasql
           key: ${{ runner.os }}-${{ hashFiles('zetasql') }}-${{ matrix.python-version }}
 
-      - name: Install bazelisk
-        uses: bazelbuild/setup-bazelisk@v1
-
-      - name: Cache bazel
-        uses: actions/cache@v2
-        with:
-          path: "/home/runner/.cache/bazel"
-          key: bazel
-
       - name: Install android sdk
         uses: maxim-lobanov/setup-android-tools@v1
         with:
