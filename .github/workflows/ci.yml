@@ -30,10 +30,8 @@ jobs:
             pyzetasql/proto/zetasql
           key: ${{ runner.os }}-${{ hashFiles('zetasql') }}-${{ matrix.python-version }}
 
-      - name: Install bazel
+      - name: Install bazelisk
         uses: bazelbuild/setup-bazelisk@v1
-        with:
-          bazelisk-version: 1.9.0
 
       - name: Cache bazel
         uses: actions/cache@v2
