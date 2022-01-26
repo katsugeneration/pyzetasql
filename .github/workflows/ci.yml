@@ -25,14 +25,14 @@ jobs:
         with:
           path: |
             pyzetasql/server/service
-          key: ${{ runner.os }}-${{ hashFiles('zetasql') }}-${{ matrix.python-version }}
+          key: ${{ runner.os }}-${{ hashFiles('zetasql/**') }}-${{ matrix.python-version }}
 
       - name: Cache proto files
         uses: actions/cache@v2
         with:
           path: |
             pyzetasql/proto/zetasql
-          key: ${{ runner.os }}-${{ hashFiles('zetasql') }}-${{ matrix.python-version }}
+          key: ${{ runner.os }}-${{ hashFiles('zetasql/**') }}-${{ matrix.python-version }}
 
       - name: Setup Android SDK
         run: echo "y" | /usr/local/lib/android/sdk/tools/bin/sdkmanager --install "build-tools;30.0.3"
