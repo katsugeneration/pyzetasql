@@ -24,5 +24,5 @@ if [ ! -f "pyzetasql/proto/zetasql" ]; then
     mkdir -p pyzetasql/proto/zetasql/proto
     cp zetasql/bazel-bin/zetasql/proto/*_pb2.py pyzetasql/proto/zetasql/proto/
     mkdir -p pyzetasql/proto/zetasql/resolved_ast
-    cp zetasql/bazel-bin/zetasql/resolved_ast/**/*_pb2.py pyzetasql/proto/zetasql/resolved_ast/
+    find zetasql/bazel-bin/zetasql/resolved_ast/ -type f | grep -i _pb2.py$ | xargs -i cp {} pyzetasql/proto/zetasql/resolved_ast/
 fi
