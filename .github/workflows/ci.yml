@@ -1,10 +1,6 @@
 on:
   pull_request
 
-defaults:
-  run:
-    shell: zsh
-
 jobs:
   run_test:
     runs-on: ubuntu-latest
