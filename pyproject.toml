@@ -7,7 +7,7 @@ build = 'build.py'
 exclude = ['zetasql']
 
 [tool.poetry.dependencies]
-python = ">=3.8,<3.10"
+python = ">=3.7,<3.10"
 grpcio = "^1.43.0"
 protobuf = "^3.19.3"
 
